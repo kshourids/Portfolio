@@ -1,0 +1,41 @@
+/* Rain Effect */
+.rain-container {
+    position: fixed;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 80px);
+    z-index: 0;
+    /* Background rain */
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.rain-drop {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.4);
+    /* More visible */
+    width: 3px;
+    /* Droplet width */
+    height: 5px;
+    /* Droplet height (much shorter) */
+    background: rgba(255, 255, 255, 0.6);
+    /* Brighter */
+    border-radius: 50%;
+    /* Rounded drops */
+    top: -30px;
+    animation: fall linear infinite;
+    opacity: 0.8;
+}
+
+/* Light mode rain visibility */
+body.light-mode .rain-drop {
+    background: rgba(0, 0, 0, 0.4);
+    /* Much darker rain for valid heavy effect in light mode */
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh);
+    }
+}
